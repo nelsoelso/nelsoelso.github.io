@@ -75,6 +75,37 @@
     align-items: center;
     gap: 10px;
   }
+  /* ── LANG SWITCH ── */
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+
+  .lang-btn {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--gray-text);
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+
+  .lang-btn:hover { color: var(--navy); background: rgba(255,255,255,0.7); }
+
+  .lang-btn.lang-active {
+    background: var(--white);
+    color: var(--navy);
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
 
   .nav-logo-dot {
     width: 8px; height: 8px;
@@ -908,6 +939,7 @@
     <li><a href="#schritte">Onboarding</a></li>
     <li><a href="mailto:support@beat.education" class="btn-nav">Book a Demo</a></li>
   </ul>
+  <div class="lang-switch"><a href="index.html" class="lang-btn">DE</a><a href="en.html" class="lang-btn lang-active">EN</a></div>
 </nav>
 
 <!-- HERO -->
