@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<link rel="icon" type="image/png" href="logo.png">
- <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BEAT – Klinische Lehre und Weiterbildung. Endlich organisiert.</title>
 <meta name="description" content="BEAT gibt Studierenden und Assistenzärzt:innen ein digitales Logbuch, strukturiertes EPA-Feedback und einen klaren Blick auf ihre Kompetenzentwicklung.">
@@ -922,7 +921,41 @@
     opacity: 1;
     transform: translateY(0);
   }
-</style>
+
+  /* ── SCREENSHOTS TEASER ── */
+  .screens-section {
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .screens-phones {
+    display: flex; justify-content: center; align-items: flex-end;
+    gap: 1.5rem; margin: 2.5rem auto 2rem;
+    max-width: 720px; padding: 0 2rem;
+  }
+  .screens-phone {
+    flex: 0 0 auto; position: relative;
+    transition: transform 0.3s ease;
+  }
+  .screens-phone:hover { transform: translateY(-6px); }
+  .screens-phone-shell {
+    border-radius: 24px; overflow: hidden;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    background: #060d18;
+  }
+  .screens-phone-shell img { display: block; object-fit: cover; object-position: top; }
+  .screens-phone--main .screens-phone-shell { width: 160px; height: 325px; }
+  .screens-phone--side .screens-phone-shell { width: 138px; height: 280px; opacity: 0.75; }
+  .screens-cta-row { margin-top: 0.5rem; }
+  .screens-cta-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--teal); font-size: 0.88rem; font-weight: 600;
+    text-decoration: none; transition: gap 0.2s;
+  }
+  .screens-cta-link:hover { gap: 0.7rem; }
+
+  </style>
 </head>
 <body>
 
@@ -1042,16 +1075,7 @@
   </div>
 </section>
 
-<!-- QUOTE -->
-<section class="quote-section">
-  <div class="quote-inner fade-up">
-    <div class="quote-stars">★★★★★</div>
-    <blockquote>„BEAT hat die Organisation unserer PJ-Ausbildung grundlegend verändert. Was früher Stunden an Koordination erforderte, passiert jetzt automatisch. Die Studierenden buchen selbst, die Dokumentation läuft im Hintergrund — und wir können uns endlich auf die Lehre konzentrieren."</blockquote>
-    <p class="quote-attr">Lehrbeauftragter, akademisches Lehrkrankenhaus</p>
-  </div>
-</section>
-
- <!-- SCREENSHOTS TEASER -->
+<!-- SCREENSHOTS TEASER -->
 <section class="screens-section">
   <div class="section-intro fade-up">
     <div class="section-label">Einblick</div>
@@ -1080,6 +1104,15 @@
       Alle Screenshots ansehen
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-inner fade-up">
+    <div class="quote-stars">★★★★★</div>
+    <blockquote>„BEAT hat die Organisation unserer PJ-Ausbildung grundlegend verändert. Was früher Stunden an Koordination erforderte, passiert jetzt automatisch. Die Studierenden buchen selbst, die Dokumentation läuft im Hintergrund — und wir können uns endlich auf die Lehre konzentrieren."</blockquote>
+    <p class="quote-attr">Lehrbeauftragter, akademisches Lehrkrankenhaus</p>
   </div>
 </section>
 
@@ -1133,7 +1166,7 @@
 <section class="pricing" id="preise">
   <div class="section-intro fade-up">
     <div class="section-label">Preise</div>
-    <h2 class="section-title">Transparent. <em></em>Skalierbar.</em></h2>
+    <h2 class="section-title">Transparent. Skalierbar.<br><em>Monatlich kündbar.</em></h2>
     <p class="section-desc">Für jede Einrichtungsgröße das passende Modell. Keine versteckten Kosten.</p>
   </div>
   <div class="pricing-grid">
@@ -1172,6 +1205,7 @@
         <li class="price-feature"><span class="price-feature-check">✓</span>Alle Funktionen der Abteilungslizenz</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>Unbegrenzte Abteilungen</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>Krankenhausweite Statistiken</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Zentrales Koordinatorendashboard</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>KI-Fortschrittsberichte</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>Onboarding & Support</li>
       </ul>
@@ -1191,7 +1225,9 @@
       <hr class="price-divider">
       <ul class="price-features">
         <li class="price-feature"><span class="price-feature-check">✓</span>Alle Funktionen des Lehrkrankenhaus-Pakets</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Multi-Standort-Verwaltung</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>Universitätsweites EPA-Reporting</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Akademische Lehrkrankenhäuser einbinden</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>Erweiterte NKLM-Auswertungen</li>
         <li class="price-feature"><span class="price-feature-check">✓</span>Dedizierter Ansprechpartner</li>
       </ul>
