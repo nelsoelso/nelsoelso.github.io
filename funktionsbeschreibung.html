@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funktionsbeschreibung – BEAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-dot"></span>BEAT</a>
+  <a href="index.html" class="nav-back">← Zurück zur Startseite</a>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">Dokumentation</div>
+    <h1 class="page-title">Funktionsbeschreibung</h1>
+    <p class="page-meta">BEAT – Klinische Lehre und Weiterbildung, endlich organisiert.</p>
+  </div>
+</header>
+
+<main class="content">
+
+  <h2>1. Produktübersicht</h2>
+  <p>
+    BEAT ist eine webbasierte Anwendung zur Organisation und Verwaltung von Lehraktivitäten in
+    Universitätskliniken und akademischen Lehrkrankenhäusern. Die Plattform verbindet Studierende mit
+    Dozierenden für die Durchführung verschiedener Termintypen wie Unterricht am Krankenbett, Seminare
+    und praktische Ausbildungseinheiten.
+  </p>
+  <div class="info-box">
+    <p><strong>Anwendungsbereich:</strong> Universitätskliniken · Akademische Lehrkrankenhäuser · Medizinische Fakultäten mit klinischer Ausbildung</p>
+  </div>
+
+  <h2>2. Nutzergruppen und Funktionalitäten</h2>
+
+  <h3>2.1 Dozierende</h3>
+  <p>Freigabe erfolgt durch Lehrbeauftragte in der Mitarbeiterverwaltung.</p>
+
+  <h4>Terminverwaltung</h4>
+  <ul>
+    <li>Erstellung von Lehrterminen mit konfigurierbaren Parametern: Termintyp, Titel, Datum, Dauer, Veranstaltungsort, maximale Teilnehmerzahl, optionale Beschreibung</li>
+    <li>Verwaltung und Bearbeitung bestehender Termine (inkl. Serientermine)</li>
+    <li>Export gehaltener Termine als Lehrnachweis</li>
+    <li>Kalender-Export im .ics-Format</li>
+  </ul>
+
+  <h4>Teilnehmermanagement</h4>
+  <ul>
+    <li>Ein- und Auschecken angemeldeter Studierender</li>
+    <li>Nur eingecheckte Studierende können bewertet werden</li>
+    <li>Check-in muss VOR Ende des Termins erfolgen</li>
+    <li>Übersicht über angemeldete Studierende</li>
+  </ul>
+
+  <h4>Feedback-Funktionen</h4>
+  <ul>
+    <li>Abgabe von EPA-Feedback an eingecheckte Studierende nach Terminen</li>
+    <li>Evaluationen sind bis zu 24 Stunden nach Terminende möglich</li>
+    <li>KI-gestützte Diktierfunktion (Whisper) für schnelles Feedback</li>
+    <li>NKLM-konforme 5-stufige Kompetenzbewertung</li>
+    <li>Empfang von Feedback durch Studierende</li>
+  </ul>
+
+  <h3>2.2 Studierende</h3>
+  <p>Freigabe erfolgt automatisch nach Registrierung.</p>
+
+  <h4>Terminbuchung</h4>
+  <ul>
+    <li>Anmeldung zu verfügbaren Lehrterminen in Echtzeit</li>
+    <li>Abmeldung von gebuchten Terminen</li>
+    <li>Übersicht über eigene Terminbuchungen</li>
+    <li>20% Grace-Period: Anmeldungen auch kurz nach Terminbeginn möglich (z.B. Termin 13:00–14:00 → Anmeldung bis 13:12)</li>
+  </ul>
+
+  <h4>Digitales Logbuch</h4>
+  <ul>
+    <li>Führung eines digitalen Logbuchs mit EPA-Zuordnung</li>
+    <li>Verwaltung einer persönlichen Fallsammlung</li>
+    <li>Fortschrittsübersicht im Dashboard</li>
+    <li>KI-generierte Fortschrittsberichte und Empfehlungen</li>
+  </ul>
+
+  <h4>Lernfunktionen</h4>
+  <ul>
+    <li>Lernfälle anlegen und verwalten</li>
+    <li>Multiple-Choice-Quiz (MCQs) mit Spaced-Repetition-System</li>
+    <li>Wissensaktivierung direkt in der Plattform</li>
+  </ul>
+
+  <h4>Feedback-Funktionen</h4>
+  <ul>
+    <li>Abgabe von Feedback an Dozierende (bidirektional)</li>
+    <li>Empfang von EPA-Kompetenzfeedback zu absolvierten Terminen</li>
+    <li>Ansicht des eigenen EPA-Fortschritts mit Kompetenzstufenverlauf</li>
+  </ul>
+
+  <h4>Profilverwaltung</h4>
+  <ul>
+    <li>Wechsel der Universitätszuordnung (insbesondere für PJ-Studierende)</li>
+    <li>Eintragung einer Matrikelnummer (optional)</li>
+    <li>Vollständige Datenlöschung jederzeit möglich</li>
+  </ul>
+
+  <h3>2.3 Lehrbeauftragte (Teaching Coordinators)</h3>
+  <p>Freigabe erfolgt durch BEAT während des Onboardings.</p>
+
+  <h4>Verwaltungsübersicht</h4>
+  <ul>
+    <li>Einsicht in Statistiken der jeweiligen Fachabteilung und klinikweit</li>
+    <li>Verwaltung von Mitarbeiter:innen (Freischalten, Deaktivieren, Ablehnen)</li>
+    <li>Übersicht über Klinikstrukturen und Abteilungen</li>
+    <li>Export von Lehrnachweisen und Statistiken</li>
+    <li>KI-generierte Übersichtsberichte</li>
+    <li>EPA-Fortschritt abteilungsübergreifend analysieren</li>
+  </ul>
+
+  <h3>2.4 Resident-Modus (Assistenzärzt:innen)</h3>
+  <p>Optionales Zusatzmodul für die ärztliche Weiterbildung.</p>
+  <ul>
+    <li>Separates Weiterbildungslogbuch mit WBO-konformen Kompetenzen</li>
+    <li>Verknüpfung mit medizinischen Fachrichtungen und EPA-Definitionen</li>
+    <li>Fortschrittsübersicht nach Weiterbildungsordnung</li>
+    <li>Supervisor-Zuordnung und Bewertung</li>
+  </ul>
+
+  <h2>3. Technische Eigenschaften</h2>
+
+  <h3>Plattform</h3>
+  <ul>
+    <li>Webbasierte Progressive Web App (PWA) – keine lokale Installation erforderlich</li>
+    <li>Zugriff über Standard-Webbrowser (Desktop und Mobil)</li>
+    <li>Installierbar auf dem Homescreen (iOS und Android)</li>
+    <li>Push-Benachrichtigungen (optional, nach Einwilligung)</li>
+  </ul>
+
+  <h3>Datenschutz und Sicherheit</h3>
+  <ul>
+    <li>Hosting auf EU-Servern (IONOS, Deutschland)</li>
+    <li>Datenbank: Supabase (EU-Region)</li>
+    <li>Keine Verarbeitung von Patienten- oder Krankenhausdaten</li>
+    <li>Ausschließliche Verarbeitung ausbildungsrelevanter Daten</li>
+    <li>Vollständige Datenlöschung für alle Nutzergruppen möglich</li>
+    <li>DSGVO-konform, AVVs mit allen Drittanbietern</li>
+  </ul>
+
+  <h3>Compliance</h3>
+  <ul>
+    <li>NKLM-konform (Nationaler Kompetenzbasierter Lernzielkatalog Medizin)</li>
+    <li>MFT-konform (Medizinischer Fakultätentag)</li>
+    <li>14 Kern-EPAs nach NKLM vollständig abgebildet</li>
+  </ul>
+
+  <h2>4. Anmelde- und Registrierungsprozess</h2>
+  <p>
+    Voraussetzung für die Nutzung von BEAT ist die Registrierung unter
+    <a href="https://app.beat.education" target="_blank">app.beat.education</a>.
+    Mit erfolgreicher Registrierung kommt ein Nutzungsvertrag zwischen dem Anbieter und dem Nutzer zustande.
+  </p>
+
+  <h4>Ablauf</h4>
+  <ol>
+    <li>Registrierungsanfrage über <a href="https://app.beat.education">app.beat.education</a> mit Vor- und Nachname, E-Mail-Adresse und Universitätszugehörigkeit</li>
+    <li>Bestätigung per E-Mail (Verifikation der E-Mail-Adresse)</li>
+    <li>Angabe der Rolle (Studierende:r oder Lehrbeauftragte:r)</li>
+    <li>Nach Bestätigung: Anmeldung und sofortige Nutzung möglich</li>
+  </ol>
+
+  <div class="info-box">
+    <p>Die Registrierung und Nutzung von BEAT ist für alle Nutzer:innen kostenlos. Kosten entstehen ausschließlich auf institutioneller Ebene (Lizenzvertrag mit der Klinik bzw. Universität).</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo"><span class="footer-logo-dot"></span>BEAT</a>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+      <li><a href="funktionsbeschreibung.html">Funktionsbeschreibung</a></li>
+      <li><a href="mailto:support@beat.education">support@beat.education</a></li>
+    </ul>
+  </div>
+  <p class="footer-copy">© BEAT GmbH · Münster · HRB 23016 · Alle Rechte vorbehalten.</p>
+</footer>
+</body>
+</html>

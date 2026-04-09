@@ -1,0 +1,44 @@
+/* shared.css - BEAT Design System */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0d1b2e; --navy-mid: #1a2d48; --teal: #00b88a; --teal-light: #00d4a0;
+  --teal-dim: rgba(0,184,138,0.12); --white: #ffffff; --off-white: #f8f9fb;
+  --gray-light: #f0f2f6; --gray-mid: #c8cfd9; --gray-text: #6b7a90;
+  --text-dark: #0d1b2e; --text-mid: #2e4060; --border: rgba(13,27,46,0.08);
+  --border-mid: rgba(13,27,46,0.14); --radius-sm: 8px; --radius-md: 14px;
+  --radius-lg: 20px; --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif; --max-w: 860px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text-dark); background: var(--white); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--navy); letter-spacing: -0.5px; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); display: inline-block; }
+.nav-back { font-size: 14px; color: var(--gray-text); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.nav-back:hover { color: var(--navy); }
+.page-header { padding: 120px 24px 48px; background: var(--off-white); border-bottom: 1px solid var(--border); }
+.page-header-inner { max-width: var(--max-w); margin: 0 auto; }
+.page-label { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+.page-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: var(--navy); letter-spacing: -0.8px; line-height: 1.15; }
+.page-meta { font-size: 14px; color: var(--gray-text); margin-top: 12px; }
+.content { max-width: var(--max-w); margin: 0 auto; padding: 56px 24px 96px; }
+.content h2 { font-family: var(--font-display); font-size: 22px; font-weight: 300; color: var(--navy); margin: 48px 0 16px; letter-spacing: -0.3px; padding-top: 24px; border-top: 1px solid var(--border); }
+.content h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+.content h3 { font-size: 16px; font-weight: 500; color: var(--navy); margin: 28px 0 10px; }
+.content h4 { font-size: 14px; font-weight: 500; color: var(--text-mid); margin: 20px 0 8px; }
+.content p { font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; font-weight: 300; }
+.content ul, .content ol { padding-left: 20px; margin-bottom: 16px; }
+.content li { font-size: 15px; color: var(--text-mid); line-height: 1.7; margin-bottom: 6px; font-weight: 300; }
+.content a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,184,138,0.3); transition: border-color 0.2s; }
+.content a:hover { border-color: var(--teal); }
+.content strong { font-weight: 500; color: var(--text-dark); }
+.info-box { background: var(--off-white); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: var(--radius-sm); padding: 16px 20px; margin: 24px 0; }
+.info-box p { margin: 0; font-size: 14px; }
+footer { background: var(--navy); padding: 40px 24px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: var(--font-display); font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.9); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.footer-logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+.footer-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+.footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); width: 100%; text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); }

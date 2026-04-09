@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEAT – Clinical Education and Training. Finally organized.</title>
+<meta name="description" content="BEAT gives medical students and residents a digital logbook, structured EPA feedback and a clear view of their competency development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2e;
+    --navy-mid: #1a2d48;
+    --navy-light: #243d5c;
+    --teal: #00b88a;
+    --teal-light: #00d4a0;
+    --teal-dim: rgba(0,184,138,0.12);
+    --teal-dim2: rgba(0,184,138,0.06);
+    --white: #ffffff;
+    --off-white: #f8f9fb;
+    --gray-light: #f0f2f6;
+    --gray-mid: #c8cfd9;
+    --gray-text: #6b7a90;
+    --text-dark: #0d1b2e;
+    --text-mid: #2e4060;
+    --border: rgba(13,27,46,0.08);
+    --border-mid: rgba(13,27,46,0.14);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --max-w: 1100px;
+    --section-pad: 96px 24px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .btn-nav {
+    background: var(--navy);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-nav:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 24px 96px;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(0,184,138,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-bottom: 56px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,184,138,0.25);
+    color: #007a5c;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--gray-text);
+    max-width: 520px;
+    margin: 20px auto 36px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--navy-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13,27,46,0.18);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    border: 1px solid var(--border-mid);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gray-mid);
+    background: var(--off-white);
+  }
+
+  .hero-chips {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--gray-text);
+  }
+
+  .chip-check {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+
+
+  /* ── STATS ── */
+  .stats {
+    background: var(--navy);
+    padding: var(--section-pad);
+  }
+
+  .stats-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .stat-label {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  .stat-label strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+  /* ── FEATURES ── */
+  .features {
+    padding: var(--section-pad);
+    background: var(--white);
+  }
+
+  .section-intro {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 64px;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    color: var(--navy);
+  }
+
+  .section-title em { font-style: italic; color: var(--teal); }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--gray-text);
+    margin-top: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .features-grid {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .feature-card {
+    background: var(--white);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+
+  .feature-card:hover { background: var(--off-white); }
+
+  .feature-icon {
+    width: 44px; height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--teal-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .feature-card p {
+    font-size: 14px;
+    color: var(--gray-text);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    background: var(--off-white);
+    padding: var(--section-pad);
+  }
+
+  .quote-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .quote-stars {
+    color: var(--teal);
+    font-size: 18px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+  }
+
+  blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    margin-bottom: 24px;
+  }
+
+  .quote-attr {
+    font-size: 14px;
+    color: var(--gray-text);
+    font-weight: 400;
+  }
+
+  /* ── ROLES ── */
+  .roles {
+    padding: var(--section-pad);
+    background: var(--white);
+  }
+
+  .roles-grid {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .role-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .role-card:hover {
+    border-color: rgba(0,184,138,0.3);
+    box-shadow: 0 4px 20px rgba(0,184,138,0.08);
+  }
+
+  .role-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--teal-dim);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .role-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .role-card .role-sub {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gray-text);
+    margin-bottom: 24px;
+  }
+
+  .role-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .role-list li {
+    font-size: 14px;
+    color: var(--text-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
+  }
+
+  .role-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── PRICING ── */
+  .pricing {
+    padding: var(--section-pad);
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing::before {
+    content: '';
+    position: absolute;
+    bottom: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(ellipse, rgba(0,184,138,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .pricing .section-title { color: var(--white); }
+  .pricing .section-desc { color: rgba(255,255,255,0.5); }
+  .pricing .section-label { color: var(--teal); }
+
+  .pricing-grid {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .price-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .price-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .price-card.featured {
+    background: var(--white);
+    border-color: transparent;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .price-card.featured h3 { color: var(--navy); }
+  .price-card.featured .price-desc { color: var(--gray-text); }
+  .price-card.featured .price-amount { color: var(--navy); }
+  .price-card.featured .price-period { color: var(--gray-text); }
+  .price-card.featured .price-feature { color: var(--text-mid); }
+  .price-card.featured .price-divider { border-color: var(--border); }
+  .price-card.featured .price-addon { color: var(--gray-text); }
+  .price-card.featured .price-addon strong { color: var(--navy); }
+
+  .price-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--teal);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .price-card h3 {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+
+  .price-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+    font-weight: 300;
+    min-height: 42px;
+  }
+
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .price-amount sup { font-size: 20px; vertical-align: super; letter-spacing: 0; }
+  .price-amount .currency { font-size: 20px; margin-right: 2px; }
+
+  .price-period {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+
+  .price-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 24px;
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .price-feature {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
+    font-weight: 300;
+  }
+
+  .price-feature-check {
+    color: var(--teal);
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: 1px;
+  }
+
+  .price-addon {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: rgba(0,184,138,0.1);
+    border: 1px solid rgba(0,184,138,0.2);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+
+  .price-addon strong {
+    color: var(--teal-light);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .price-card.featured .price-addon {
+    background: var(--teal-dim);
+    border-color: rgba(0,184,138,0.25);
+  }
+
+  .price-cta {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .price-cta-outline {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    background: transparent;
+  }
+
+  .price-cta-outline:hover {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .price-cta-solid {
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+  }
+
+  .price-cta-solid:hover {
+    background: var(--navy-mid);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(13,27,46,0.25);
+  }
+
+  .pricing-note {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    max-width: var(--max-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── STEPS ── */
+  .steps {
+    padding: var(--section-pad);
+    background: var(--off-white);
+  }
+
+  .steps-grid {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 14%;
+    right: 14%;
+    height: 1px;
+    background: var(--border-mid);
+    z-index: 0;
+  }
+
+  .step {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--border-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--navy);
+  }
+
+  .step:nth-child(4) .step-num {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .step h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--gray-text);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--white);
+    padding: var(--section-pad);
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .cta-band h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .cta-band h2 em { font-style: italic; color: var(--teal); }
+
+  .cta-band p {
+    font-size: 16px;
+    color: var(--gray-text);
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 48px 24px;
+  }
+
+  .footer-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-logo-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.2);
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .stats-inner { grid-template-columns: 1fr; gap: 36px; }
+    .roles-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .steps-grid::before { display: none; }
+    nav .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    :root { --section-pad: 64px 20px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    BEAT
+  </a>
+  <ul class="nav-links">
+    <li><a href="#funktionen">Features</a></li>
+    <li><a href="#rollen">Who is it for?</a></li>
+    <li><a href="#preise">Pricing</a></li>
+    <li><a href="#schritte">Onboarding</a></li>
+    <li><a href="mailto:support@beat.education" class="btn-nav">Book a Demo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      NKLM-compliant · EU servers · No installation required
+    </div>
+    <h1>Clinical Education.<br><em>Finally organized.</em></h1>
+    <p class="hero-sub">
+      Digital logbook, structured EPA feedback and measurable learning progress –
+      for medical students, residents and hospitals.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:support@beat.education" class="btn-primary">
+        Book a Demo
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://app.beat.education" class="btn-secondary">Open App</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><span class="chip-check">✓</span>Progress Tracking</span>
+      <span class="chip"><span class="chip-check">✓</span>EPA Competency Feedback</span>
+      <span class="chip"><span class="chip-check">✓</span>Automated Teaching Records</span>
+      <span class="chip"><span class="chip-check">✓</span>AI-generated Reports</span>
+      <span class="chip"><span class="chip-check">✓</span>Paperless Logbook</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="zahlen">
+  <div class="stats-inner">
+    <div class="fade-up">
+      <div class="stat-num">70%</div>
+      <p class="stat-label">of medical students report that clinical rotations have a <strong>significant influence on specialty choice</strong>.</p>
+    </div>
+    <div class="fade-up">
+      <div class="stat-num">92%</div>
+      <p class="stat-label">identify interaction with attending physicians as the decisive factor – <strong>exactly what structured teaching scales.</strong></p>
+    </div>
+    <div class="fade-up">
+      <div class="stat-num">⅓</div>
+      <p class="stat-label">consider leaving clinical medicine because they experience <strong>no innovative teaching concept</strong> during their clinical year.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="funktionen">
+  <div class="section-intro fade-up">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">One Platform.<br><em>Many Capabilities.</em></h2>
+    <p class="section-desc">From appointment booking to automated teaching records – BEAT connects everyone involved in clinical education.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-icon">📋</div>
+      <h3>Digital Logbook</h3>
+      <p>Every clinical activity is linked to the appropriate EPA. A structure that automatically meets NKLM requirements.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">📅</div>
+      <h3>Digital Appointment Coordination</h3>
+      <p>Teachers post appointments, students book in real time. No emails, no phone calls, no overhead.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">✅</div>
+      <h3>Check-in & Attendance</h3>
+      <p>Teachers check in participants – only checked-in persons can be assessed. Clear accountability.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🔄</div>
+      <h3>Bidirectional Feedback</h3>
+      <p>Students rate teaching quality. Teachers receive constructive feedback. Both sides grow.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🎙️</div>
+      <h3>AI Dictation</h3>
+      <p>Capture meaningful pedagogical feedback quickly by voice – powered by Whisper AI. Precise and fast.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">📊</div>
+      <h3>Hospital-wide Statistics</h3>
+      <p>Teaching coordinators see department utilization, EPA distribution and feedback scores at a glance – exportable at any time.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🧠</div>
+      <h3>AI Progress Reports</h3>
+      <p>Automatically generated analyses and recommendations based on each student's individual EPA progress.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">📈</div>
+      <h3>Competency Tracking</h3>
+      <p>Students see at any time which EPAs have been completed and where development potential exists.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🎓</div>
+      <h3>Case Studies & Quizzes</h3>
+      <p>Create case studies, answer MCQs, actively reflect on knowledge – spaced repetition built into the platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-inner fade-up">
+    <div class="quote-stars">★★★★★</div>
+    <blockquote>"BEAT has fundamentally changed the organization of our clinical year program. What used to require hours of coordination now happens automatically. Students book themselves, documentation runs in the background — and we can finally focus on teaching."</blockquote>
+    <p class="quote-attr">Teaching Coordinator, Academic Teaching Hospital</p>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles" id="rollen">
+  <div class="section-intro fade-up">
+    <div class="section-label">Three Roles</div>
+    <h2 class="section-title">For Everyone Involved<br><em>in Clinical Education.</em></h2>
+  </div>
+  <div class="roles-grid">
+    <div class="role-card fade-up">
+      <span class="role-tag">Students</span>
+      <h3>Learning with Structure</h3>
+      <p class="role-sub">Making progress visible</p>
+      <ul class="role-list">
+        <li>Book teaching appointments in real time</li>
+        <li>Digital Logbook mit EPA-Zuordnung führen</li>
+        <li>Request and view competency feedback</li>
+        <li>Track personal progress and AI recommendations</li>
+        <li>Create case studies, answer MCQs</li>
+      </ul>
+    </div>
+    <div class="role-card fade-up">
+      <span class="role-tag">Teachers</span>
+      <h3>Teaching Without Overhead</h3>
+      <p class="role-sub">More time for what matters</p>
+      <ul class="role-list">
+        <li>Plan and manage teaching appointments flexibly</li>
+        <li>Record attendance via check-in</li>
+        <li>Submit EPA feedback directly by dictation</li>
+        <li>Export automated teaching records</li>
+        <li>Receive feedback from students</li>
+      </ul>
+    </div>
+    <div class="role-card fade-up">
+      <span class="role-tag">Coordinators</span>
+      <h3>Maintaining Overview</h3>
+      <p class="role-sub">Quality assurance at the push of a button</p>
+      <ul class="role-list">
+        <li>Manage and approve teachers</li>
+        <li>Hospital-wide Statistics einsehen</li>
+        <li>Export teaching records and AI reports</li>
+        <li>Document NKLM & MFT compliance</li>
+        <li>Analyze EPA progress across departments</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="preise">
+  <div class="section-intro fade-up">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Transparent. Scalable.<br><em>Cancel anytime.</em></h2>
+    <p class="section-desc">The right model for every institution size. No hidden costs, no annual contract requirement.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- Einzelne Department -->
+    <div class="price-card fade-up">
+      <h3>Department</h3>
+      <p class="price-desc">For individual departments in hospitals or practices</p>
+      <div class="price-amount"><span class="currency">€</span>100</div>
+      <p class="price-period">per month · excl. VAT</p>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li class="price-feature"><span class="price-feature-check">✓</span>Digital Logbook & EPA-Tracking</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Appointment coordination & check-in</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Bidirectional Feedback</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Teaching record export</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Department statistics</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>AI Dictation</li>
+      </ul>
+      <div class="price-addon">
+        <strong>+ Resident Mode: € 150/month</strong>
+        Postgraduate logbook with WBO competencies for residents
+      </div>
+      <a href="mailto:support@beat.education" class="price-cta price-cta-outline">Book a Demo</a>
+    </div>
+
+    <!-- Teaching Hospital -->
+    <div class="price-card featured fade-up">
+      <div class="price-badge">Most popular</div>
+      <h3>Teaching Hospital</h3>
+      <p class="price-desc">For academic teaching hospitals with multiple departments</p>
+      <div class="price-amount"><span class="currency">€</span>750</div>
+      <p class="price-period">per month · excl. VAT</p>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li class="price-feature"><span class="price-feature-check">✓</span>All department license features</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Unlimited departments</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Krankenhausweite Statistiken</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Central coordinator dashboard</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>AI Progress Reports</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Onboarding & support</li>
+      </ul>
+      <div class="price-addon">
+        <strong>+ Resident Mode: € 1,000/month</strong>
+        Postgraduate logbook with WBO competencies for residents
+      </div>
+      <a href="mailto:support@beat.education" class="price-cta price-cta-solid">Book a Demo</a>
+    </div>
+
+    <!-- University -->
+    <div class="price-card fade-up">
+      <h3>University</h3>
+      <p class="price-desc">Für Universityskliniken und medizinische Fakultäten</p>
+      <div class="price-amount"><span class="currency">€</span>1.000</div>
+      <p class="price-period">per month · excl. VAT</p>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li class="price-feature"><span class="price-feature-check">✓</span>Alle Features des Teaching Hospital-Pakets</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Multi-site management</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Universitysweites EPA-Reporting</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Integrate academic teaching hospitals</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Extended NKLM analysis</li>
+        <li class="price-feature"><span class="price-feature-check">✓</span>Dedicated contact person</li>
+      </ul>
+      <div class="price-addon">
+        <strong>+ Resident Mode: € 1,500/month</strong>
+        Postgraduate logbook with WBO competencies for residents
+      </div>
+      <a href="mailto:support@beat.education" class="price-cta price-cta-outline">Book a Demo</a>
+    </div>
+
+  </div>
+  <p class="pricing-note">All prices excl. statutory VAT · Monthly billing · No minimum term · No hidden costs</p>
+</section>
+
+<!-- STEPS -->
+<section class="steps" id="schritte">
+  <div class="section-intro fade-up">
+    <div class="section-label">Onboarding</div>
+    <h2 class="section-title">Go Live<br><em>in 4 Steps.</em></h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <h3>Demo & Consultation</h3>
+      <p>30 minutes. Your clinical structure, your questions. Free and non-binding.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <h3>Set up your institution</h3>
+      <p>Departments, appointment types, permissions — together in approx. 2 hours.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <h3>Invite users</h3>
+      <p>Teaching coordinators are activated first. Teachers and students register independently.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <h3>Productive from day one</h3>
+      <p>First appointments online. EPAs and feedback active. No long lead time, no IT project.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <h2>Ready to <em>rethink education?</em></h2>
+  <p>Schedule a free demo – we'll show you BEAT based on your institutional structure.</p>
+  <div class="hero-actions">
+    <a href="mailto:support@beat.education" class="btn-primary">
+      Schedule Demo
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://app.beat.education" class="btn-secondary">Open App</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">
+      <span class="footer-logo-dot"></span>
+      BEAT
+    </a>
+    <ul class="footer-links">
+      <li><a href="https://beat.education/impressum/">Impressum</a></li>
+      <li><a href="https://beat.education/datenschutzerklarung/">Datenschutzerklärung</a></li>
+      <li><a href="https://beat.education/funktionsbeschreibung/">Funktionsbeschreibung</a></li>
+      <li><a href="mailto:support@beat.education">support@beat.education</a></li>
+    </ul>
+  </div>
+  <p class="footer-copy">© BEAT GmbH · Münster · HRB 23016 · Alle Rechte vorbehalten.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
