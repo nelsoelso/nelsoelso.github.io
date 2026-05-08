@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEAT für Klinikverbünde – Weiterbildung sichern. Lückenlos dokumentieren.</title>
+<meta name="description" content="Die Krankenhausreform verändert die ärztliche Weiterbildung grundlegend. BEAT hilft Klinikverbünden, EPA-basierte Kompetenzentwicklung digital zu koordinieren und lückenlos nachzuweisen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2e;
+    --navy-mid: #1a2d48;
+    --navy-light: #243d5c;
+    --teal: #00b88a;
+    --teal-light: #00d4a0;
+    --teal-dim: rgba(0,184,138,0.12);
+    --teal-dim2: rgba(0,184,138,0.06);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.12);
+    --white: #ffffff;
+    --off-white: #f8f9fb;
+    --gray-light: #f0f2f6;
+    --gray-mid: #c8cfd9;
+    --gray-text: #6b7a90;
+    --text-dark: #0d1b2e;
+    --text-mid: #2e4060;
+    --border: rgba(13,27,46,0.08);
+    --border-mid: rgba(13,27,46,0.14);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --max-w: 1100px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-cta {
+    background: var(--teal);
+    color: #fff !important;
+    padding: 9px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 500 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 24px 80px;
+    background: linear-gradient(160deg, var(--navy) 0%, #0f2236 55%, #1a3a5c 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,184,138,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,184,138,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,184,138,0.3);
+    color: var(--teal-light);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  .hero-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    max-width: 780px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-light);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.72);
+    max-width: 620px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-weight: 400;
+    font-size: 15px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 24px;
+  }
+
+  .stats-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    text-align: center;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--teal); }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--gray-text);
+    max-width: 160px;
+    line-height: 1.4;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 88px 24px; }
+
+  .section-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.18;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--text-mid);
+    max-width: 640px;
+    line-height: 1.72;
+    margin-bottom: 56px;
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .problem-bg {
+    background: linear-gradient(180deg, #f8f9fb 0%, #eef1f6 100%);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .problem-quote {
+    background: var(--white);
+    border: 1px solid var(--border-mid);
+    border-left: 4px solid var(--amber);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .problem-quote::before {
+    content: '"';
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: var(--amber);
+    opacity: 0.3;
+    position: absolute;
+    top: 8px; left: 20px;
+    line-height: 1;
+  }
+
+  .problem-quote p {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    padding-top: 20px;
+    font-style: italic;
+  }
+
+  .problem-quote cite {
+    display: block;
+    margin-top: 16px;
+    font-size: 13px;
+    font-style: normal;
+    color: var(--gray-text);
+    font-weight: 500;
+  }
+
+  .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .problem-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--amber-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .problem-item-title {
+    font-weight: 500;
+    color: var(--navy);
+    font-size: 14.5px;
+    margin-bottom: 4px;
+  }
+
+  .problem-item-text {
+    font-size: 13.5px;
+    color: var(--gray-text);
+    line-height: 1.55;
+  }
+
+  /* ── FEATURES GRID ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(0,184,138,0.3);
+    box-shadow: 0 12px 40px rgba(0,184,138,0.08);
+    transform: translateY(-4px);
+  }
+
+  .feature-card:hover::after { transform: scaleX(1); }
+
+  .feature-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--teal-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .feature-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .feature-text {
+    font-size: 14px;
+    color: var(--gray-text);
+    line-height: 1.65;
+  }
+
+  .feature-tag {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--teal-dim);
+    color: var(--teal);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps-dark {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .steps-dark .section-title {
+    color: var(--white);
+  }
+
+  .steps-dark .section-lead {
+    color: rgba(255,255,255,0.65);
+  }
+
+  .steps-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .steps-track::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 10%; right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), rgba(0,184,138,0.2));
+    z-index: 0;
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 8px rgba(0,184,138,0.12);
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .step-text {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-bg {
+    background: var(--off-white);
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(13,27,46,0.08);
+  }
+
+  .compare-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 20px 28px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .compare-table th:not(:first-child) {
+    text-align: center;
+  }
+
+  .compare-table th.beat-col {
+    background: var(--teal);
+    color: #fff;
+  }
+
+  .compare-table td {
+    padding: 18px 28px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    font-size: 14.5px;
+    color: var(--text-mid);
+  }
+
+  .compare-table td:not(:first-child) { text-align: center; }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .compare-table .check { color: var(--teal); font-size: 18px; font-weight: 700; }
+  .compare-table .cross { color: #d1d5db; font-size: 18px; }
+  .compare-table .partial { color: var(--amber); font-size: 15px; }
+
+  .compare-table td.feature-label { font-weight: 500; color: var(--navy); }
+
+  /* ── REFORM CONTEXT ── */
+  .reform-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #0f2a42 100%);
+    border-radius: var(--radius-xl);
+    padding: 56px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reform-box::before {
+    content: '§';
+    position: absolute;
+    top: -30px; right: 40px;
+    font-family: var(--font-display);
+    font-size: 280px;
+    font-weight: 700;
+    color: rgba(0,184,138,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .reform-box h3 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--teal-light);
+    letter-spacing: -0.5px;
+  }
+
+  .reform-box p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.72);
+    max-width: 640px;
+    margin-bottom: 28px;
+  }
+
+  .reform-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .reform-points li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+
+  .reform-points li::before {
+    content: '→';
+    color: var(--teal);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── TESTIMONIAL / QUOTE SECTION ── */
+  .quote-strip {
+    background: var(--teal);
+    padding: 56px 24px;
+  }
+
+  .quote-strip-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .quote-strip blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.45;
+    margin-bottom: 24px;
+  }
+
+  .quote-strip cite {
+    font-size: 14px;
+    font-style: normal;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--off-white);
+    padding: 96px 24px;
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .cta-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    line-height: 1.18;
+  }
+
+  .cta-section p {
+    font-size: 17px;
+    color: var(--gray-text);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary-dark {
+    background: var(--navy);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary-dark:hover { background: var(--navy-mid); transform: translateY(-2px); }
+
+  .btn-outline-dark {
+    background: transparent;
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-weight: 400;
+    font-size: 15px;
+    text-decoration: none;
+    border: 1.5px solid var(--border-mid);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-outline-dark:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 13.5px;
+  }
+
+  footer a { color: var(--teal); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .problem-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .steps-track { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .steps-track::before { display: none; }
+    .reform-box { padding: 36px 28px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .steps-track { grid-template-columns: 1fr; }
+    .reform-box::before { display: none; }
+    .compare-table th, .compare-table td { padding: 14px 16px; font-size: 13px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+  .delay-4 { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/beat-logo.png" alt="BEAT" onerror="this.style.display='none'">
+    BEAT
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">PJ &amp; Weiterbildung</a></li>
+    <li><a href="klinikverbunde.html" class="nav-active">Klinikverbünde</a></li>
+    <li><a href="index.html#preise">Preise</a></li>
+    <li><a href="mailto:support@beat.education" class="btn-nav">Demo buchen</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="fade-up delay-1">
+      Klinikverbünde.<br>
+      <em>Weiterbildung sichern.</em><br>
+      Lückenlos dokumentieren.
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Die Krankenhausreform konzentriert Leistungen auf weniger Standorte. 
+      Für Assistenzärzt:innen wird der Nachweis von Eingriffszahlen und EPA-Kompetenzen 
+      damit anspruchsvoller — nicht einfacher. BEAT schließt diese Lücke.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="mailto:info@beat.education" class="btn-primary">Demo für Ihren Verbund →</a>
+      <a href="funktionsbeschreibung.html" class="btn-ghost">Alle Funktionen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-row">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">60<span>+</span></div>
+      <div class="stat-label">Leistungsgruppen nach KHVVG/KHAG bundesweit</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>€</span>50 Mrd.</div>
+      <div class="stat-label">Transformationsfonds 2026–2035</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">34<span>+</span></div>
+      <div class="stat-label">WBO-Entrustable Professional Activities pro Fachrichtung in BEAT</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0<span> €</span></div>
+      <div class="stat-label">Papierlogbücher, Excel-Tabellen, E-Mail-Chaos</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROBLEM ── -->
+<section class="problem-bg">
+  <div class="section-inner">
+    <div class="section-label">Das Problem</div>
+    <h2 class="section-title">Die Reform <em>verdichtet</em> Leistungen.<br>Die Weiterbildung bleibt auf der Strecke.</h2>
+    <p class="section-lead">
+      Fusionen, Spezialisierungen und weniger Standorte sind das Ziel. 
+      Doch wenn Fachabteilungen zusammengelegt werden, müssen Assistenzärzt:innen 
+      trotzdem ihre Eingriffs- und Fallzahlen für die WBO nachweisen — 
+      und niemand hat ein digitales System dafür.
+    </p>
+
+    <div class="problem-grid">
+      <div>
+        <div class="problem-quote">
+          <p>„Bei der zu erwartenden Leistungsverdichtung scheint die ärztliche Aus- und Weiterbildung aktuell komplett unterzugehen."</p>
+          <cite>— Kongress Zukunft Gesundheit, Klinikverbund Hessen, 2025</cite>
+        </div>
+        <div class="problem-quote">
+          <p>„Die Reform soll Bündelung von Kompetenzen und Ressourcen fördern. Doch wie die Weiterbildungsqualität dabei gesichert wird, ist gesetzlich nicht geregelt."</p>
+          <cite>— Deloitte Krankenhausreform-Analyse, 2026</cite>
+        </div>
+      </div>
+
+      <ul class="problem-list">
+        <li class="problem-item">
+          <div class="problem-icon">📋</div>
+          <div>
+            <div class="problem-item-title">Papierlogbücher in einer digitalisierten Welt</div>
+            <div class="problem-item-text">WBO-Nachweise werden handschriftlich geführt, gehen verloren oder werden monatelang nicht abgezeichnet.</div>
+          </div>
+        </li>
+        <li class="problem-item">
+          <div class="problem-icon">🏥</div>
+          <div>
+            <div class="problem-item-title">Abteilungsübergreifende Koordination ohne Tool</div>
+            <div class="problem-item-text">Im Klinikverbund wechseln Assistenzärzt:innen Standorte. Kein System verfolgt den EPA-Fortschritt standortübergreifend.</div>
+          </div>
+        </li>
+        <li class="problem-item">
+          <div class="problem-icon">📊</div>
+          <div>
+            <div class="problem-item-title">Kein Reporting für Weiterbildungsermächtigte</div>
+            <div class="problem-item-text">Chefärzt:innen und Ärztekammern fordern Nachweise. Die Datenlage fehlt oder ist verstreut auf Excel-Tabellen.</div>
+          </div>
+        </li>
+        <li class="problem-item">
+          <div class="problem-icon">🎓</div>
+          <div>
+            <div class="problem-item-title">Studentische Lehre und Weiterbildung im selben Haus</div>
+            <div class="problem-item-text">Akademische Lehrkrankenhäuser koordinieren beides parallel — mit unterschiedlichen Listen, Tabellen und E-Mails.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">BEAT löst das</div>
+    <h2 class="section-title">Alles, was ein Klinikverbund<br><em>heute braucht</em>.</h2>
+    <p class="section-lead">
+      BEAT ist die erste Plattform, die studentische Lehre, klinische EPA-Bewertungen 
+      und ärztliche Weiterbildungs-Dokumentation in einer Anwendung verbindet — 
+      sicher, DSGVO-konform, ohne Infrastrukturaufwand.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🗓️</div>
+        <div class="feature-title">Terminkoordination</div>
+        <p class="feature-text">Lehrveranstaltungen, Tutorings und Weiterbildungsblöcke verbundweit planen. Automatische Erinnerungen. Check-in-Tracking.</p>
+        <span class="feature-tag">Studierende &amp; Assistenzärzt:innen</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏅</div>
+        <div class="feature-title">EPA-Feedback (5-stufig)</div>
+        <p class="feature-text">NKLM-konforme Kompetenzbewertung für Studierende. WBO-konforme EPA-Dokumentation für Assistenzärzt:innen — nach Fachrichtung konfigurierbar.</p>
+        <span class="feature-tag">NKLM · WBO · Entrustment-Level</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📓</div>
+        <div class="feature-title">Digitales Logbuch</div>
+        <p class="feature-text">Fallsammlungen, Mini-CEX, strukturiertes Lernen — alles mit Zeitstempel, Tutorunterschrift und Exportfunktion für die Ärztekammer.</p>
+        <span class="feature-tag">Revisionssicher · Exportierbar</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔁</div>
+        <div class="feature-title">Weiterbildungsmodus</div>
+        <p class="feature-text">Separate Ansicht für Assistenzärzt:innen in Facharztweiterbildung. Individuelle WBO-Curricula (z.B. Viszeralchirurgie NRW) direkt hinterlegt.</p>
+        <span class="feature-tag">WBO NRW · Viszeralchirurgie · Erweiterbar</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏢</div>
+        <div class="feature-title">Multi-Standort-Architektur</div>
+        <p class="feature-text">Mehrere Kliniken, Abteilungen und Standorte in einer Instanz. Feature Flags je Haus konfigurierbar. Rollenbasierter Zugriff.</p>
+        <span class="feature-tag">Klinikverbund-ready</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">KI-gestützte Diktierung</div>
+        <p class="feature-text">Feedback und Fortschrittsberichte per Spracheingabe — via OpenAI/Whisper. Spart Lehrenden Zeit, erhöht Feedback-Qualität messbar.</p>
+        <span class="feature-tag">AI-Dictation · Fortschrittsberichte</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="steps-dark">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--teal-light);">So funktioniert's</div>
+    <h2 class="section-title" style="color: #fff; margin-bottom: 16px;">Von der Einführung zur<br><em style="color:var(--teal-light)">täglichen Routine</em>.</h2>
+    <p class="section-lead">In wenigen Wochen einsatzbereit — kein IT-Projekt, keine Servermigration.</p>
+
+    <div class="steps-track">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-title">Onboarding</div>
+        <p class="step-text">Wir konfigurieren BEAT für Ihren Verbund: Abteilungen, EPA-Katalog, WBO-Curricula, Nutzerrollen.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-title">Einladung</div>
+        <p class="step-text">Tutor:innen, Koordinator:innen und Lernende erhalten App-Zugang per E-Mail — ohne App-Store.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-title">Betrieb</div>
+        <p class="step-text">Termine planen, EPA bewerten, Logbücher führen — alles läuft automatisch und DSGVO-konform.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-title">Reporting</div>
+        <p class="step-text">Koordinator:innen und Weiterbildungsermächtigte sehen Fortschritte in Echtzeit. Exportberichte auf Knopfdruck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARISON ── -->
+<section class="compare-bg">
+  <div class="section-inner">
+    <div class="section-label">Vergleich</div>
+    <h2 class="section-title">BEAT vs. der <em>Status quo</em>.</h2>
+    <p class="section-lead">Was andere Kliniken mit Papier, Excel und E-Mail lösen — BEAT macht es strukturiert, sicher und auswertbar.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Funktion</th>
+          <th>Papier &amp; Excel</th>
+          <th>Generische HR-Tools</th>
+          <th class="beat-col">BEAT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feature-label">Digitales Logbuch (WBO-konform)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">⚬ Generisch</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">EPA-Bewertung (5 Kompetenzstufen)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">WBO-Curricula (z.B. Viszeralchirurgie NRW)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">Studentische Lehre + Weiterbildung in einer App</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">Multi-Standort (Klinikverbund)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">⚬ Aufwändig</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">DSGVO-konforme Datenhaltung (DE)</td>
+          <td><span class="partial">⚬ Unklar</span></td>
+          <td><span class="partial">⚬ Oft US-Cloud</span></td>
+          <td><span class="check">✓ Supabase EU</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">Push-Benachrichtigungen &amp; Erinnerungen</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">⚬ E-Mail only</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-label">KI-Diktierung für Feedback</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── REFORM CONTEXT ── -->
+<section>
+  <div class="section-inner">
+    <div class="reform-box">
+      <h3>Was das KHVVG &amp; KHAG für die Weiterbildung bedeutet</h3>
+      <p>
+        Das Krankenhausversorgungsverbesserungsgesetz (KHVVG, in Kraft seit 1. Januar 2025) 
+        und das Krankenhausreformanpassungsgesetz (KHAG, beschlossen 6. März 2026) 
+        schaffen 60 bundeseinheitliche Leistungsgruppen und fördern die Konzentration von Fachabteilungen 
+        in Klinikverbünden. Das hat direkte Auswirkungen auf die ärztliche Weiterbildung:
+      </p>
+      <ul class="reform-points">
+        <li>Weniger Standorte = weniger Weiterbildungsstellen pro Haus, aber gleiche WBO-Anforderungen für Eingriffszahlen</li>
+        <li>Rotationen zwischen Verbundstandorten erfordern übergreifende Dokumentation der Kompetenzentwicklung</li>
+        <li>Ärztekammern erwarten nachvollziehbare, revisionssichere Weiterbildungsnachweise</li>
+        <li>Der Transformationsfonds fördert Digitalisierungsprojekte — BEAT passt als Maßnahme für Weiterbildungsdigitalisierung</li>
+        <li>Akademische Lehrkrankenhäuser im Verbund koordinieren Lehre für Studierende UND Weiterbildung für Ärzt:innen — beides in BEAT</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE ── -->
+<div class="quote-strip">
+  <div class="quote-strip-inner">
+    <blockquote>
+      „Weiterbildung ist kein Selbstläufer. Sie braucht Struktur, Feedback und Sichtbarkeit — 
+      genau das, was in der täglichen Klinikroutine verloren geht."
+    </blockquote>
+    <cite>PD Dr. Nader El-Sourani · Geschäftsführer BEAT GmbH, Münster</cite>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Bereit für den nächsten Schritt?</h2>
+    <p>Wir zeigen Ihnen BEAT in einer 30-minütigen Demo — zugeschnitten auf die Struktur Ihres Verbunds. Kostenlos und unverbindlich.</p>
+    <div class="cta-buttons">
+      <a href="mailto:info@beat.education" class="btn-primary-dark">Demo anfragen →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 BEAT GmbH · Münster · <a href="datenschutz.html">Datenschutz</a> · <a href="mailto:info@beat.education">info@beat.education</a></p>
+</footer>
+
+</body>
+</html>
