@@ -41,6 +41,88 @@
   }
   .btn-nav:hover { background: #00d4a0 !important; color: #fff !important; transform: translateY(-1px); }
   @media (max-width: 767px) { nav .nav-links { display: none; } }
+
+  /* ── HAMBURGER MENU ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy, #0d1b2e);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,27,46,0.55);
+    z-index: 998;
+  }
+  .mobile-nav-overlay.open { display: block; }
+
+  .mobile-nav {
+    position: fixed;
+    top: 0; right: -280px;
+    width: 260px;
+    height: 100%;
+    background: #fff;
+    z-index: 999;
+    padding: 80px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+    transition: right 0.28s cubic-bezier(0.4,0,0.2,1);
+  }
+  .mobile-nav.open { right: 0; }
+
+  .mobile-nav a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--navy, #0d1b2e);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f2f5;
+    display: block;
+    transition: color 0.2s;
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--teal, #00b88a); }
+  .mobile-nav a.nav-active { color: var(--teal, #00b88a); font-weight: 600; }
+  .mobile-nav .btn-nav-mobile {
+    margin-top: 12px;
+    background: var(--teal, #00b88a);
+    color: #fff !important;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    border-bottom: none !important;
+  }
+  .mobile-nav .btn-nav-mobile:hover { background: #00d4a0; color: #fff !important; }
+
+  @media (max-width: 900px) {
+    nav .nav-links { display: none !important; }
+    .hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -52,6 +134,9 @@
     <li><a href="index.html#preise">Preise</a></li>
     <li><a href="mailto:support@beat.education" class="btn-nav">Demo buchen</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <header class="page-header">
@@ -146,5 +231,28 @@
   </div>
   <p class="footer-copy">© BEAT GmbH · Münster · HRB 23016 · Alle Rechte vorbehalten.</p>
 </footer>
+
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">PJ &amp; Weiterbildung</a>
+  <a href="klinikverbunde.html">Klinikverbünde</a>
+  <a href="index.html#preise">Preise</a>
+  <a href="mailto:support@beat.education" class="btn-nav-mobile">Demo buchen</a>
+</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('mobileOverlay');
+  function toggleMenu(open) {
+    hamburger.classList.toggle('open', open);
+    mobileNav.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', () => toggleMenu(!mobileNav.classList.contains('open')));
+  overlay.addEventListener('click', () => toggleMenu(false));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+</script>
+
 </body>
 </html>
