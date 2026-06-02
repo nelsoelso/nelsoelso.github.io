@@ -40,7 +40,7 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
-    .nav-links { list-style: none; display: flex; gap: 28px; align-items: center; }
+    .nav-links { position: absolute; left: 50%; transform: translateX(-50%); list-style: none; display: flex; gap: 28px; align-items: center; }
     .nav-links a { font-size: 14px; font-weight: 500; color: var(--gray-text); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
     .nav-links a.nav-active { color: var(--navy); font-weight: 600; }
