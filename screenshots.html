@@ -155,6 +155,29 @@
       transition: all .25s; box-shadow: 0 8px 26px rgba(0,184,138,0.28);
     }
     .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(0,184,138,0.42); }
+  
+    /* ── HAMBURGER / MOBILE NAV ── */
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 998; }
+    .mobile-nav-overlay.open { display: block; }
+    .mobile-nav {
+      position: fixed; top: 0; right: -280px; width: 260px; height: 100%;
+      background: var(--navy); z-index: 999; padding: 80px 28px 32px;
+      display: flex; flex-direction: column; gap: 6px;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      box-shadow: -4px 0 24px rgba(0,0,0,0.4);
+      transition: right 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-nav.open { right: 0; }
+    .mobile-nav a { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.75); text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: block; transition: color 0.2s; }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav .btn-nav-mobile {
+      margin-top: 12px; background: var(--teal); color: var(--navy) !important;
+      text-align: center; padding: 14px 20px; border-radius: 10px; font-weight: 600; border-bottom: none !important;
+    }
+
   </style>
 </head>
 <body>
@@ -170,7 +193,7 @@
     <li><a href="index.html#preise">Preise</a></li>
     <li><a href="mailto:support@beat.education" class="nav-cta">Demo buchen</a></li>
   </ul>
-  <button class="hamburger" aria-label="Menü öffnen">
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -365,6 +388,30 @@
     }
   }
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+</script>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">PJ-Studierende</a>
+  <a href="weiterbildung.html">Ärzt:innen in Weiterbildung</a>
+  <a href="klinikverbunde.html">Klinikverbünde</a>
+  <a href="index.html#preise">Preise</a>
+  <a href="mailto:support@beat.education" class="btn-nav-mobile">Demo buchen</a>
+</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('mobileOverlay');
+  function toggleMenu(open) {
+    hamburger.classList.toggle('open', open);
+    mobileNav.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', () => toggleMenu(!mobileNav.classList.contains('open')));
+  overlay.addEventListener('click', () => toggleMenu(false));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 </script>
 </body>
 </html>
